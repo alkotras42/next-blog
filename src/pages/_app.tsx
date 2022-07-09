@@ -13,17 +13,17 @@ export default withTRPC<AppRouter>({
     const url = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/trpc` : 'http://localhost:3000/api/trpc'
     return {
       headers() {
-        if(ctx?.req) {
+        if (ctx?.req) {
           return {
             ...ctx.req.headers,
-            'x-ssr': '1'
+            'x-ssr': '1',
           }
         }
-        return {} 
+        return {}
       },
       url,
       transformer: superjson,
     }
   },
-  ssr: false
+  ssr: false,
 })(MyApp)

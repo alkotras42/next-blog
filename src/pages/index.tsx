@@ -6,15 +6,10 @@ import {trpc} from '../utils/trpс'
 
 export default function Home() {
 
-  const {data, error, isLoading} = trpc.useQuery(['hello'])
-
-  if(isLoading) return <p>Loading...</p>
-
-  if(error) return <p>Something went wrong</p>
 
   return (
-    <h1 className="text-3xl font-bold underline">
-      {JSON.stringify(data)}
+    <h1 className='bg-slate-400 h-screen'>
+      Hello World
     </h1>
   )
 }
